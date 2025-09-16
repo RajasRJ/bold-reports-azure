@@ -10,6 +10,7 @@
     var isUsersTab = (Context.Request.Query["tab"] == "users") ? "active" : string.Empty;
     var isSettingsTab = (Context.Request.Query["tab"] == "settings") ? "active" : string.Empty;
     var enableAIFeature = GlobalAppSettings.SystemSettings.AI.EnableAiFeature != null && (bool)GlobalAppSettings.SystemSettings.AI.EnableAiFeature;
+    var isFreeTier = GlobalAppSettings.SystemSettings.Sandbox.BI.Enabled || GlobalAppSettings.SystemSettings.Sandbox.Reports.Enabled;
 }
 
 @section styles{
@@ -211,7 +212,7 @@
                             <a href="#ai-serviceKey-tab" class="text-decoration-none" aria-controls="ai-serviceKey-tab" role="tab" data-bs-toggle="tab">@T["AI"]</a>
                         </li>
                     }
-                    @if (Model.TenantTypeId == (int)TenantType.BoldBIOnPremise && ViewBag.ResourceLimitationEnable)
+                    @if (isFreeTier || ViewBag.ResourceLimitationEnable)
                     {
                         <li role="presentation" class="@isResourceLimitationTab" id="resource-limitation">
                             <a href="#resource-limitation-tab" class="text-decoration-none" aria-controls="resource-limitation-tab" role="tab" data-bs-toggle="tab">@T["Limitations"]</a>
@@ -236,14 +237,17 @@
         <div class="admin-page-content col-12 float-start no-padding">
                 <div class="tab-content col-12 float-start no-padding">
                     @await Html.PartialAsync("_SiteDetail")
-                    @await Html.PartialAsync("_SiteUsers")
-                    @await Html.PartialAsync("_SiteDataSecurity")
-                    @await Html.PartialAsync("_SiteAIServiceKey")
-                    @await Html.PartialAsync("_SiteResourceLimitation")
-                    @await Html.PartialAsync("_SiteCustomAttribute")
-                    @if (Model.TenantTypeId == (int)TenantType.BoldBIOnPremise)
+                    @if (Model.TenantStatus == TenantStatus.Active)
                     {
-                        @await Html.PartialAsync("_GlobalSiteSettings")
+                        @await Html.PartialAsync("_SiteUsers")
+                        @await Html.PartialAsync("_SiteDataSecurity")
+                        @await Html.PartialAsync("_SiteAIServiceKey")
+                        @await Html.PartialAsync("_SiteCustomAttribute")
+                        @await Html.PartialAsync("_SiteResourceLimitation")
+                        @if (Model.TenantTypeId == (int)TenantType.BoldBIOnPremise)
+                        {
+                            @await Html.PartialAsync("_GlobalSiteSettings")
+                        }
                     }
                 </div>
 
