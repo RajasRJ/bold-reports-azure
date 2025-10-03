@@ -484,6 +484,16 @@ CREATE TABLE [BOLDRS_TableRelation](
     [RightTableSchema] [nvarchar](255) NOT NULL)
 ;
 
+CREATE TABLE [BOLDRS_MultiTabReport](
+	[Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[ParentReportId] [uniqueidentifier] NOT NULL,
+	[ChildReportId] [uniqueidentifier] NOT NULL,
+	[OrderNumber] [int] NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[TabName] [nvarchar](255) NULL)
+;
+
 CREATE TABLE [BOLDRS_Source](
     [Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
     [Name] [nvarchar](100) NULL UNIQUE,
@@ -2041,6 +2051,11 @@ ALTER TABLE [BOLDRS_ReportPartLinkage]  ADD FOREIGN KEY([ReportId]) REFERENCES [
 ALTER TABLE [BOLDRS_ReportPartLinkage] ADD FOREIGN KEY([CreatedById]) REFERENCES [BOLDRS_User] ([Id])
 ;
 ALTER TABLE [BOLDRS_ReportPartLinkage]  ADD FOREIGN KEY([ModifiedById]) REFERENCES [BOLDRS_User] ([Id])
+;
+
+ALTER TABLE [BOLDRS_MultiTabReport]  ADD FOREIGN KEY([ParentReportId]) REFERENCES [BOLDRS_Item] ([Id])
+;
+ALTER TABLE [BOLDRS_MultiTabReport]  ADD FOREIGN KEY([ChildReportId]) REFERENCES [BOLDRS_Item] ([Id])
 ;
 
 CREATE NONCLUSTERED INDEX [IX_BOLDRS_ScheduleDetail_ScheduleId] ON [BOLDRS_ScheduleDetail]([ScheduleId]) WITH (ONLINE = ON)

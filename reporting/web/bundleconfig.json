@@ -41,6 +41,24 @@
     "integrity": "sha384-e7JmXp8qKQo8636d2Wx5ZuWk2vgEW7FfKHJ4IAEchB46HeGhzQgY+0NtxAGNBztB"
   },
   {
+    "outputFileName": "wwwroot/cdn/css/create-slideshow.min.css",
+    "inputFiles": [
+      "wwwroot/Styles/Bootstrap/bootstrap-select.css",
+      "wwwroot/Styles/scss/pages/Slideshow/CreateSlideshow.css"
+    ],
+    "integrity": "sha384-1Jw9H1S9M37hIrDjISPTAVhp5lE7e0ddexvY03MsbK9o03BXQ1fr/cZna/CaSy0h"
+  },
+  {
+    "outputFileName": "wwwroot/cdn/scripts/create-slideshow.min.js",
+    "inputFiles": [
+      "wwwroot/Scripts/jQuery/jquery-ui.min.js",
+      "wwwroot/Scripts/Bootstrap/bootstrap-select.min.js",
+      "wwwroot/Scripts/Slideshow/CreateSlideshow.js",
+      "wwwroot/Scripts/Slideshow/EditSlideshow.js"
+    ],
+    "integrity": "sha384-UngdxOCNHum/PBlk1lri4pC/2tleccxtd29ka+L/EdlfI5n22J/e8OF0gWmcR3Uu"
+  },
+  {
     "outputFileName": "wwwroot/cdn/scripts/connector-page-layout.min.js",
     "inputFiles": [
       "wwwroot/Scripts/jQuery/jquery-3.5.1.min.js",
@@ -57,6 +75,18 @@
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
     "integrity": "sha384-NK53Xw2cp+iQmxG7AT+daKiv1NW0ypK4mJvRkVA3xtNinj1veDde/wSQG839VNmC"
+  },
+  {
+    "outputFileName": "wwwroot/cdn/scripts/multi-tabbed-report-viewer-v2.min.js",
+    "inputFiles": [
+      "wwwroot/Scripts/Report/reportviewercommon.js",
+      "wwwroot/Scripts/Report/save-views-v2.js",
+      "wwwroot/Scripts/Comments/ReportComment.js",
+      "wwwroot/Scripts/Core/Server.Common.js",
+      "wwwroot/Scripts/Items/ItemViewShare.js",
+      "wwwroot/Scripts/Report/multitabbedreportviewerv2.js"
+    ],
+    "integrity": "sha384-akKxQC5egE6J34CYqRzTftWV7Re3We/K9Qwblvtu/Rh6dJQPBp7VnbYDYIJ1OVWa"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/layout-mobile.min.js",
@@ -1028,7 +1058,7 @@
       "wwwroot/Scripts/essentialjs/ej.menu.min.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-ERQlDmib3OGQgPeox7trmBVXGzf0BdtGc7B+AEUzFXBrICe6Fjcmh5l5pt2r6LTO"
+    "integrity": "sha384-0wn/PFTF0jb7/6+SDUIAGf6jNenQsGtRqqdlwRyHq+TZ7YCp6oWso51O/N/Bdr+o"
   },
   {
     "outputFileName": "wwwroot/cdn/css/reports-page.min.css",
@@ -1050,7 +1080,7 @@
       "wwwroot/Styles/scss/pages/ItemsView.css",
       "wwwroot/Styles/scss/pages/Components/RadioButton.css"
     ],
-    "integrity": "sha384-M+5JorvqaerpEGPiedUabD8uOt13BJCGh2LCwqkYyuR9NK6qFc9tf8oefpXNaPi4"
+    "integrity": "sha384-zA+/P2+AsY9DKBBPVPspJF2Fj+RLsCrKjfLjD8CrpodlXEOaTyQFI5RFS/VnWaqW"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/tile-dashboards-page.min.js",
@@ -1079,7 +1109,7 @@
       "wwwroot/Scripts/launcher/launcher.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-Zcsq4tQQQBFm0iUbyGtql0fNk5Krkn6upTaaLCCuMEGQ+uV0UPcqiIZIueBsmCXn"
+    "integrity": "sha384-S2D8/s74Z8cWj9VL1BN+ehaGJJxvRcoz/Bi+EVOLUic028HBl9SjSR3dbUwvB8r2"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/itemaction.min.js",
@@ -1253,7 +1283,7 @@
     "inputFiles": [
       "wwwroot/Scripts/Core/LocalizationContent.js"
     ],
-    "integrity": "sha384-UXYSb/RwCH54a2hDfeYgChWM2Piryz8PO0TUDS4gj5SlsYkVpGGO0TKkmxIRRo2e"
+    "integrity": "sha384-dm5UIbsAxzRGpFt3Aa+hcvf2HLTp/dvyVzqEU91tanVP7xUO4y5w4x18/sPRjClj"
   },
   {
     "outputFileName": "wwwroot/cdn/css/adduserpermission.min.css",
@@ -1409,7 +1439,7 @@
       "wwwroot/Scripts/Items/items.add.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-O0er5n2E1/cyv/kGzEjnDIkJMaG2XSpTKgSqc1NMZiHinnFljWBXi+S71APGT8CG"
+    "integrity": "sha384-rM7j2zwKtQZbQYwrF4WInTc7I3rzvKxk0ReSSHmfJh8/hKFPoMirwX3xOmtM672/"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/scheduleslisting-mobile.min.js",
@@ -1447,7 +1477,7 @@
       "wwwroot/Scripts/Items/ItemsMobile.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-0zE3tx4qKD8QAARprSnoLI5XYsC5UWXdS08C4x4EVd28kCS6M7srdnJhSM4jQj0a"
+    "integrity": "sha384-ErA4gaiV/m0X9HDi9MGOMHi27w33Z1FFy8TPDA+dPPRgum7+vcAIeCChAD1Ro5DR"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/profile.min.js",
@@ -2258,7 +2288,7 @@
       "wwwroot/Scripts/Home/Home.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-rg4CrFilcR3vORjxpYRtedMnM3HF5+rLP0i5Dqe0C7DYgJZVdHczoG108yeueXUf"
+    "integrity": "sha384-hbTEF48Rr60VVpvdH4yNt6+8TppkiSQDdnadkKPAysSw9SDPsKV0B2cok0be0Nr/"
   },
   {
     "outputFileName": "wwwroot/cdn/css/addgroup.min.css",
@@ -2424,7 +2454,7 @@
       "wwwroot/Scripts/Bootstrap/bootstrap-select.min.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-mZmRuyyOVZMjX8WrhpVCfc1mWnIYpqJHOgXqcCfLdP+TjWB5GGE+aYIlPzi8G6lh"
+    "integrity": "sha384-88puqeI2Vnlj0Fgadt6s+5qLzeEke/4iIokUtdJLg/k9NQEy0sWYIc5/itMYijfy"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/schedulerrecurrence.min.js",
@@ -2498,7 +2528,7 @@
       "wwwroot/Scripts/Scheduler/CustomExpressionEditor.js",
       "wwwroot/Scripts/Core/ServerCommon.js"
     ],
-    "integrity": "sha384-jKWAWZHPNfVoDgLT4L51t9IFgKROGyIJrGnUOdnTU46steX6EK+xLMYcsmRgvh0F"
+    "integrity": "sha384-5ThM0VPRMiEw0aizC6FtBJmcMIoFV/4eDonjSkN5nWeSDJ49r5y988pKoFFhPH5i"
   },
   {
     "outputFileName": "wwwroot/cdn/scripts/scheduleparameter.min.js",
@@ -3594,7 +3624,7 @@
       "wwwroot/Styles/scss/pages/ReportComment.css",
       "wwwroot/Styles/scss/pages/reportviewerv2.css"
     ],
-    "integrity": "sha384-qPSq4Om83b2nI16E0lfk3ThdvS+DCi9LsxyWrCpGGt+8Dks/550E1BtPZ1NKEjBE"
+    "integrity": "sha384-s0BfoKPz+yqUDjMQ+q0WOif6b8Mr9YLRm1lEAr5OBsV6Ns+2CHIJ8c8vS2rcoAR0"
   },
   {
     "outputFileName": "wwwroot/cdn/css/report-viewer-mobile-v2.min.css",

@@ -477,6 +477,16 @@ CREATE TABLE BOLDRS_TableRelation(
     RightTableSchema varchar(255) NOT NULL)
 ;
 
+CREATE TABLE BOLDRS_MultiTabReport(
+	Id SERIAL PRIMARY KEY NOT NULL,
+	ParentReportId uuid NOT NULL,
+	ChildReportId uuid NOT NULL,
+	OrderNumber int NULL,
+	ModifiedDate timestamp NOT NULL,
+	IsActive smallint NOT NULL,
+	TabName varchar(255) NULL)
+;
+
 CREATE TABLE BOLDRS_Source(
     Id SERIAL PRIMARY KEY NOT NULL,
     Name varchar(100) NULL UNIQUE,
@@ -2053,6 +2063,11 @@ ALTER TABLE BOLDRS_ReportPartLinkage  ADD FOREIGN KEY(ReportId) REFERENCES BOLDR
 ALTER TABLE BOLDRS_ReportPartLinkage ADD FOREIGN KEY(CreatedById) REFERENCES BOLDRS_User (Id)
 ;
 ALTER TABLE BOLDRS_ReportPartLinkage  ADD FOREIGN KEY(ModifiedById) REFERENCES BOLDRS_User (Id)
+;
+
+ALTER TABLE BOLDRS_MultiTabReport  ADD FOREIGN KEY([ParentReportId]) REFERENCES BOLDRS_Item (Id)
+;
+ALTER TABLE BOLDRS_MultiTabReport  ADD FOREIGN KEY([ChildReportId]) REFERENCES BOLDRS_Item (Id)
 ;
 
 CREATE INDEX IX_BOLDRS_ScheduleDetail_ScheduleId ON BOLDRS_ScheduleDetail(ScheduleId);
