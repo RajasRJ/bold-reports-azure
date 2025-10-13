@@ -1,3 +1,4 @@
+ALTER TABLE BOLDRS_ItemLog MODIFY AdditionalLogInfo VARCHAR2(4000);
 INSERT INTO BOLDRS_Source (Name, IsActive) VALUES ('Viewer', 1);
 
 CREATE TABLE BOLDRS_FileDetail (

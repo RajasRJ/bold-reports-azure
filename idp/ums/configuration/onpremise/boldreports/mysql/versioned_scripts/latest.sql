@@ -1,3 +1,5 @@
+ALTER TABLE {database_name}.BOLDRS_ItemLog Modify AdditionalLogInfo text NULL
+;
 INSERT into  {database_name}.BOLDRS_Source (Name,IsActive) VALUES ( 'Viewer',1)
 ;
 

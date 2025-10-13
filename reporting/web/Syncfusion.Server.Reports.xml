@@ -329,6 +329,15 @@
              <param name="categoryName"></param>
              <returns></returns>
         </member>
+        <member name="M:Syncfusion.Server.Reports.Controllers.CategoryController.AddSubCategory(System.String,System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="categoryName"></param>
+             <param name="parentId"></param>
+             <param name="description"></param>
+             <returns></returns>
+        </member>
         <member name="M:Syncfusion.Server.Reports.Controllers.ReportsController.DeleteTemporaryRDLReport">
             <summary>
             If the popup is closed without any changes the uploaded file will be deleted from temporary files

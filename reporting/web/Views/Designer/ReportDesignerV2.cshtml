@@ -724,7 +724,8 @@
                     'isPublic': isPublic,
                     'isDraft': isDraft === 'true',
                     'isEdit': isEditReport,
-                    'tags': selectedTags
+                    'tags': selectedTags,
+                    'isCreate': args.actionType === 'createServerReport' ? true : false
                 };
 
                 args.data = reportServerData;

@@ -260,6 +260,10 @@
             <script nonce="@Context.Items["ScriptNonce"]" asp-append-version="true" src="@reportServerResourceUrl/cdn/scripts/layout-mobile.min.js" integrity="@IntegrityTagHelper.GetIntegrity("wwwroot/cdn/scripts/layout-mobile.min.js")" crossorigin="anonymous"></script>
         </environment>
     }
+
+    <script nonce="@Context.Items["ScriptNonce"]" asp-append-version="true" src="@reportServerResourceUrl/cdn/scripts/essentialjs/ej2-dropdowntree.min.js"></script>
+
+
     <script nonce="@Context.Items["ScriptNonce"]" type="text/javascript">
         $.extend(ej, Syncfusion);
         var baseUrl = "@globalAppSettings.SystemSettings.BaseUrl";
@@ -515,7 +519,11 @@
             <link rel="stylesheet" asp-append-version="true" href="@reportServerResourceUrl/cdn/css/dashboard-feedback.min.css" integrity="@IntegrityTagHelper.GetIntegrity("wwwroot/cdn/css/dashboard-feedback.min.css")" crossorigin="anonymous" />
         </environment>
     }
-
+    @if (!isMobile)
+    {
+        @await Html.PartialAsync("~/Views/Items/_CreateItemMenu.cshtml", ViewBag.ItemAddOptions != null ? ViewBag.ItemAddOptions as Dictionary<ItemType, bool> : new Dictionary<ItemType, bool>())
+        @await Html.PartialAsync("~/Views/Notification/_UserNotificationPartial.cshtml")
+    }
     @*@Html.Partial("~/Views/DataSourceDesigner/_Connection.cshtml")*@
     @if ((absolutePath == "/" ||
                                absolutePath == Url.Content("~/") ||
@@ -530,10 +538,6 @@
         await
         Html.RenderPartialAsync("~/Views/Items/_ItemAddOptions.cshtml", ViewBag.ItemAddOptions as Dictionary<ItemType, bool>, new ViewDataDictionary(ViewData) { { "IsDashboardsPage", requestUrl.IndexOf("/reports", StringComparison.CurrentCultureIgnoreCase) > 0 } });
     }
-    @if (!isMobile)
-    {
-        @await Html.PartialAsync("~/Views/Items/_CreateItemMenu.cshtml", ViewBag.ItemAddOptions != null ? ViewBag.ItemAddOptions as Dictionary<ItemType, bool> : new Dictionary<ItemType, bool>())
-        @await Html.PartialAsync("~/Views/Notification/_UserNotificationPartial.cshtml")
-    }
+    
 </body>
 </html>
