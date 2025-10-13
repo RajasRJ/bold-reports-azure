@@ -29,9 +29,9 @@
   <EnableViewsInReportsMenu>false</EnableViewsInReportsMenu>
   <IsHideETLOption>false</IsHideETLOption>
   <IsHideReportViewerHeader>false</IsHideReportViewerHeader>
-  <SameTabReportRender>false</SameTabReportRender>
+  <EnableSubCategories>false</EnableSubCategories>
+ <SameTabReportRender>false</SameTabReportRender>
   <IsHideSampleReports>false</IsHideSampleReports>
   <IsHideSampleReportParts>false</IsHideSampleReportParts>
   <IsHideGuidInUrl>false</IsHideGuidInUrl>
-  <ShowStackTrace>true</ShowStackTrace>
-</SystemSettings>
+  <ShowStackTrace>true</ShowStackTrace></SystemSettings>

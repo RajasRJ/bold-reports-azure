@@ -114,6 +114,7 @@ CREATE TABLE BOLDRS_Item (
     IsUserBased NUMBER(5),
     IsActive NUMBER(5),
     IsLocked NUMBER(5) DEFAULT 0,
+    IsHidden NUMBER(5) DEFAULT 0,
     ViewerFeatures VARCHAR2(4000)
 );
 
