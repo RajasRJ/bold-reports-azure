@@ -51,6 +51,7 @@ CREATE TABLE BOLDRS_UserLogType(
 
 CREATE TABLE BOLDRS_UserLog(
 	Id uuid PRIMARY KEY NOT NULL,
+	SiteId uuid NOT NULL,
 	ActivityId uuid NOT NULL,
 	UserLogTypeId int NOT NULL,
 	LogFieldId int NOT NULL,
@@ -168,6 +169,7 @@ CREATE TABLE BOLDRS_ItemVersion(
 
 CREATE TABLE BOLDRS_ItemLog(
 	Id SERIAL PRIMARY KEY NOT NULL,
+	SiteId uuid NOT NULL,
 	ItemLogTypeId int NOT NULL,
 	ItemId uuid NOT NULL,
 	ItemVersionId int NOT NULL,
@@ -329,6 +331,7 @@ CREATE TABLE BOLDRS_SchdLogExtnRecpt(
 
 CREATE TABLE BOLDRS_ScheduleLog(
 	Id SERIAL PRIMARY KEY NOT NULL,
+	SiteId uuid NOT NULL,
 	ScheduleStatusId int NOT NULL,
 	ScheduleId uuid NOT NULL,
 	ExecutedDate timestamp NOT NULL,
@@ -344,7 +347,8 @@ CREATE TABLE BOLDRS_SystemSettings(
 	Key varchar(255) NOT NULL,
 	Value text NULL,
 	ModifiedDate timestamp NOT NULL,
-	IsActive smallint NOT NULL)
+	IsActive smallint NOT NULL,
+	CONSTRAINT UK_BOLDRS_SystemSettings_Key_SiteId UNIQUE (Key, SiteId))
 ;
 
 CREATE TABLE BOLDRS_ServerVersion(
@@ -381,6 +385,7 @@ CREATE TABLE BOLDRS_ItemCommentLogType(
 
 CREATE TABLE BOLDRS_ItemCommentLog(
     Id SERIAL PRIMARY KEY NOT NULL,
+	SiteId uuid NOT NULL,
     ItemCommentLogTypeId int NOT NULL,
     CurrentUserId int NOT NULL,    
     CommentId int NOT NULL,
@@ -511,6 +516,7 @@ CREATE TABLE BOLDRS_PermissionLogType(
 
 CREATE TABLE BOLDRS_UserPermissionLog(
 	Id SERIAL primary key NOT NULL,
+	SiteId uuid NOT NULL,
 	UserId int NOT NULL,	
 	AffectedUserId int NOT NULL,
 	UserPermissionId int NULL,
@@ -521,6 +527,7 @@ CREATE TABLE BOLDRS_UserPermissionLog(
 
 CREATE TABLE BOLDRS_GroupPermissionLog(
 	Id SERIAL primary key NOT NULL,
+	SiteId uuid NOT NULL,
 	UserId int NOT NULL,	
 	AffectedGroupId int NOT NULL,
 	GroupPermissionId int NULL,
@@ -578,6 +585,7 @@ CREATE TABLE BOLDRS_GroupLogType(
 
 CREATE TABLE BOLDRS_GroupLog(
 	Id uuid PRIMARY KEY NOT NULL,
+	SiteId uuid NOT NULL,
 	ActivityId uuid NOT NULL,
 	GroupLogTypeId int NOT NULL,
 	LogFieldId int NOT NULL,

@@ -279,6 +279,25 @@ var EJPdfDocument = (function () {
     return EJPdfDocument;
 }());
 EJPdfDocument.Locale = {};
+EJPdfDocument.Locale['en-NZ'] = {
+    source: 'Source',
+    sourceTypes: {
+        url: 'URL',
+        database: 'Database',
+        server: 'Server'
+    },
+    categoryBasicSettings: 'Basic Settings',
+    sizing: 'Sizing',
+    sizeTypes: {
+        auto: 'AutoSize',
+        fitPage: 'FitToPageSize'
+    },
+    toolTip: {
+        requirements: 'Display any PDF file',
+        description: 'Display the PDF document content in the report',
+        title: 'PDF'
+    }
+};
 EJPdfDocument.Locale['en-US'] = {
     source: 'Source',
     sourceTypes: {

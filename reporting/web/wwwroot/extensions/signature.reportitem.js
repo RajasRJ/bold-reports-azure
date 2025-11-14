@@ -342,6 +342,16 @@ EJSignature.Locale['ar-AE'] = {
         title: 'التوقيع'
     }
 };
+EJSignature.Locale['en-NZ'] = {
+    btnText: 'Draw',
+    categoryBasicSettings: 'Basic Settings',
+    signatureLabel: 'Signature',
+    toolTip: {
+        requirements: 'Display any electronic signature for signing.',
+        description: 'This report item is used to add a graphic signature',
+        title: 'Signature'
+    }
+};
 EJSignature.Locale['en-US'] = {
     btnText: 'Draw',
     categoryBasicSettings: 'Basic Settings',

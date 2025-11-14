@@ -108,6 +108,7 @@
   <DB_ItemCommentLog>
     <DB_TableName>ItemCommentLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <ItemCommentLogTypeId>ItemCommentLogTypeId</ItemCommentLogTypeId>
     <CurrentUserId>CurrentUserId</CurrentUserId>
     <CommentId>CommentId</CommentId>
@@ -130,6 +131,7 @@
   <DB_ItemLog>
     <DB_TableName>ItemLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <ItemLogTypeId>ItemLogTypeId</ItemLogTypeId>
     <ItemId>ItemId</ItemId>
     <ItemVersionId>ItemVersionId</ItemVersionId>
@@ -300,6 +302,7 @@
   <DB_ScheduleLog>
     <DB_TableName>ScheduleLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <ScheduleStatusId>ScheduleStatusId</ScheduleStatusId>
     <ScheduleId>ScheduleId</ScheduleId>
     <ExecutedDate>ExecutedDate</ExecutedDate>
@@ -433,6 +436,7 @@
   <DB_UserLog>
     <DB_TableName>UserLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <ActivityId>ActivityId</ActivityId>
     <UserLogTypeId>UserLogTypeId</UserLogTypeId>
     <LogFieldId>LogFieldId</LogFieldId>
@@ -583,6 +587,7 @@
   <DB_UserPermissionLog>
     <DB_TableName>UserPermissionLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <UserId>UserId</UserId>
     <AffectedUserId>AffectedUserId</AffectedUserId>
     <UserPermissionId>UserPermissionId</UserPermissionId>
@@ -593,6 +598,7 @@
   <DB_GroupPermissionLog>
     <DB_TableName>GroupPermissionLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <UserId>UserId</UserId>
     <AffectedGroupId>AffectedGroupId</AffectedGroupId>
     <GroupPermissionId>GroupPermissionId</GroupPermissionId>
@@ -625,6 +631,7 @@
   <DB_GroupLog>
     <DB_TableName>GroupLog</DB_TableName>
     <Id>Id</Id>
+    <SiteId>SiteId</SiteId>
     <ActivityId>ActivityId</ActivityId>
     <GroupLogTypeId>GroupLogTypeId</GroupLogTypeId>
     <LogFieldId>LogFieldId</LogFieldId>

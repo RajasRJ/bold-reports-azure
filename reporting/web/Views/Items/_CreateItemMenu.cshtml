@@ -11,6 +11,7 @@
     var showImport = requestUrl.LocalPath.ToLower().Contains(Url.Action("Reports", "Reports").ToLower());
     var globalAppSettings = _globalAppSettings;
     var reportServerResourceUrl = globalAppSettings.SystemSettings.CDNLink.TrimEnd('/');
+    var isSandbox = ServerAppConfig.Sandbox.Reports.Enabled;
 }
 <script nonce="@Context.Items["ScriptNonce"]">
     var isDraftExistUrl = "@Url.Action("IsDraftExist", "items")";
@@ -21,6 +22,8 @@
     var addDatasetUrl = "@Url.Action("AddDataset", "DataSets")";
     var addFileUrl = "@Url.Action("AddFileView", "Files")";
     var isSelfHosted = @Json.Serialize(ServerAppConfig.IsSelfHosted);
+    var resourceCreateLimitUrl = "@Url.Action("ResourceCreateLimit", "Items")";
+    var isSandbox = @Json.Serialize(isSandbox);
 </script>
 
 <div id="create-item-container">

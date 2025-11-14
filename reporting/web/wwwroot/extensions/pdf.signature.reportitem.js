@@ -589,6 +589,37 @@ var EJPDFSignature = (function () {
     return EJPDFSignature;
 }());
 EJPDFSignature.Locale = {};
+EJPDFSignature.Locale['en-NZ'] = {
+    categoryBasicSettings: 'Basic Settings',
+    basicSettingsLabels: {
+        reason: 'Show Reason',
+        digitalIDFile: 'Digital ID File',
+        reasonLabel: 'Reason',
+        location: 'Show Location',
+        date: 'Show Current Date',
+        signatureLabel: 'Signature',
+        btnText: 'Draw',
+        contactInfo: 'Show Contact Info',
+        signedName: 'Show Signed Name',
+        reasonTxt: 'I agree'
+    },
+    designPanelLabels: {
+        reason: 'Your signing reason',
+        location: 'Your signing location',
+        contactInfo: 'Your contact info',
+        signedName: 'Digitally signed by your common name',
+        reasonLabel: 'Reason',
+        locationLabel: 'Location',
+        contactInfoLabel: 'Contact',
+        signedNameLabel: 'Name',
+        dateLabel: 'Date'
+    },
+    toolTip: {
+        requirements: 'Add a report item to the designer area.',
+        description: 'This report item is used to add a PDF signature.',
+        title: 'PDF Signature'
+    }
+};
 EJPDFSignature.Locale['en-US'] = {
     categoryBasicSettings: 'Basic Settings',
     basicSettingsLabels: {

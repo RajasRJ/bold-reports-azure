@@ -7,6 +7,7 @@
     ViewBag.MessageBox = false;
     ViewBag.HelpSiteUrl = GlobalAppSettings.GetHelpSiteUrl(HelpSiteUrlNames.DbUsersSyncSchedule);
     var reportServerResourceUrl = globalAppSettings.SystemSettings.CDNLink.TrimEnd('/');
+    var isSandbox = ServerAppConfig.Sandbox.Reports.Enabled;
 }
 
 @section styles{
@@ -30,6 +31,7 @@
         var getScheduleInfoUrl = "@Url.Action("GetDatabaseScheduleInfo", "Administration")";
         var getRecurrenceTypeUrl = "@Url.Action("GetRecurrenceType", "Administration")";
         var updateAdScheduleUrl = "@Url.Action("UpdateDatabaseSchedule", "Administration")";
+        var isSandbox = @Json.Serialize(isSandbox);
     </script>
 }
 

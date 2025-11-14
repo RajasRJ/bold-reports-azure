@@ -5,6 +5,7 @@
     Layout = null;
     var globalAppSettings = _globalAppSettings;
     var reportServerResourceUrl = globalAppSettings.SystemSettings.CDNLink.TrimEnd('/');
+    var isSandbox = ServerAppConfig.Sandbox.Reports.Enabled;
 }
 <!DOCTYPE html>
 <html class="dashboard-server">
@@ -26,6 +27,7 @@
     <script nonce="@Model">
          var getRecurrenceTypeUrl = "@Url.Action("GetRecurrenceType", "scheduler")";
          var getNextScheduleUrl = "@Url.Action("GetNextScheduleDate", "scheduler")";
+        var isSandbox = @Json.Serialize(isSandbox);
     </script>
     <script nonce="@Model" asp-append-version="true" src="@reportServerResourceUrl/cdn/scripts/essentialjs/ej.editor.min.js"></script>
     <script nonce="@Model" asp-append-version="true" src="@reportServerResourceUrl/cdn/scripts/essentialjs/ej2.numerictextbox.min.js"></script>
@@ -44,6 +46,10 @@
             <div id="recurrence-type-container" class="col-sm-4 col-4 no-margin i-search-fields">
                 <select id="recurrence-type" class="selectpicker" title=""></select>
             </div>
+            @if (isSandbox)
+            {
+                <div id="hourly-schedule-limit"><span class="su su-info"></span><span class="hourly-schedule-limit-message">[[[Hourly schedule is not supported in Free Tier. Please contact support for this option.]]]</span></div>
+            }
         </div>
         <div class="col-sm-12 col-12 no-padding recurrence-field-row" id="frequency">
 

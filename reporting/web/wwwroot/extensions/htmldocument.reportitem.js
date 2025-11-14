@@ -324,6 +324,28 @@ var EJHtmlDocument = (function () {
     return EJHtmlDocument;
 }());
 EJHtmlDocument.Locale = {};
+EJHtmlDocument.Locale['en-NZ'] = {
+    source: 'Source',
+    sourceTypes: {
+        content: 'Content',
+        url: 'URL',
+        database: 'Database',
+        server: 'Server'
+    },
+    categoryBasicSettings: 'Basic Settings',
+    sizing: 'Sizing',
+    sizeTypes: {
+        auto: 'AutoSize',
+        fit: 'Fit',
+        proportional: 'FitProportional',
+        clip: 'Clip'
+    },
+    toolTip: {
+        requirements: 'Display any HTML markup (or) URL',
+        description: 'This report item is used to process the HTML markup text and URL',
+        title: 'Html'
+    }
+};
 EJHtmlDocument.Locale['en-US'] = {
     source: 'Source',
     sourceTypes: {

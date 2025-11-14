@@ -71,6 +71,7 @@
     var schemesJson = Html.Raw(Json.Serialize(schemes));
 #pragma warning restore SCS0029 //There is no direct user input process for this issue.
     var isHideGuidInUrl = ViewBag.IsHideGuidInUrl;
+    var isSandbox = ServerAppConfig.Sandbox.Reports.Enabled;
 }
 
 @section scripts{
@@ -177,6 +178,8 @@
         var getFilesUrl = "@Url.Action("GetFiles", "Files")";
         var isHideGuidInUrl = @Json.Serialize(isHideGuidInUrl);
         var bulkDownloadUrl = "@Url.Action("BulkDownloadReportFile", "Items")";
+        var isSandbox = @Json.Serialize(isSandbox);
+        var resourceCreateLimitUrl = "@Url.Action("ResourceCreateLimit", "Items")";
     </script>
     <script nonce="@Context.Items["ScriptNonce"]">
         var dashboardItemCount = "@itemsCount[ItemType.Report]";
@@ -332,10 +335,31 @@
                 </ul>
             </div>
             <div id="dashboard-list-panel" ng-show="!isMobile || !expandCatSec">
+                @if (isSandbox)
+                {
+                    <div class="col-xs-12 recent-content-container" id="recent-content-container" style="display: none">
+                        <h4 class="card-title" id="recent-section-title">Recent</h4>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 recent-items" ng-repeat="item in recentItems">
+                                <a class="recent-item-link" href="{{viewDashboardUrl(item.Id, item.CategoryName, item.Name)}}" target="_blank">
+                                    <div class="recent-card">
+                                        <div class="recent-item-image">
+                                            <img ng-src="@reportServerResourceUrl/cdn/css/sample_items/{{item.ImageName | lowercase}}" />
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-title">[[[{{item.Name}}]]]</p>
+                                            <p class="card-text">[[[{{item.Description}}]]]</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
                 <div class="dashboard-action-container col-12 no-padding">
                     <div class="col-5 col-lg-5 col-md-7 col-sm-10 no-padding category-info-container" ng-show="!isMobile">
                         <span class="col-12 no-padding report-filter-module" ng-show="!showSearch">
-                            <ul class="report-filter-module ng-scope" ng-if="activeMenu !== 9 && activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files) && !hideReportsFiltering">
+                            <ul class="report-filter-module ng-scope report-listing-type-list" ng-if="activeMenu !== 9 && activeMenu !== @((int)DisplayCategory.ReportParts)  && activeMenu !== @((int)DisplayCategory.Files) && !hideReportsFiltering">
                                 <div class="dashboard-select-all no-padding no-margin" ng-class="{'grid-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Grid),'card-check-all-active' : reportLayoutView === @((int)ReportLayoutView.Card)}" ng-show="!isTablet && !isMobile && activeMenu !== @((int)DisplayCategory.DraftItems)" style="display:none">
                                     @Html.CheckBox("dashboard-list-select-all", false, new { @class = "material-checkbox", @autocomplete = "off", ng_if = "activeMenu !== 2 || totalDashboardCount != 0", ng_disabled = "totalDashboardCount == 0" })
                                     <label for="dashboard-list-select-all" class="dashboard-select-all-checkbox"></label>
@@ -415,7 +439,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="no-padding item-searchbox-container col-5" ng-class="showSearch ? 'search-active' : ''" ng-show="!hideReportsSearch">
+                        <div id="dashboard-search-div" class="no-padding item-searchbox-container col-5" ng-class="showSearch ? 'search-active' : ''" ng-show="!hideReportsSearch">
                             <span ng-show="isTablet && !showSearch" ng-init="showSearch=false" ng-click="onMobileSearchClicked()" class="su su-search float-end mobile-dashboard-search ng-hide"></span>
                             <div ng-show="!isTablet || showSearch" class="col-3 no-padding item-searchbox-container float-end">
                                 <div class="dashboard-search-area">
@@ -425,7 +449,7 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="dashboard-sort-container ng-hide" ng-show="!showSearch && !isTablet && !hideSortOption">
+                        <div id="dashboard-sort-div" class="dashboard-sort-container ng-hide" ng-show="!showSearch && !isTablet && !hideSortOption">
                                 <span class="dashboard-dropdown-label">[[[Sort]]]</span>
                                 <div id="dashboard-sort-dropdown" class="dashboard-filter-sort dropdown text-right no-padding">
                                     @{
@@ -968,6 +992,10 @@
             </div>
         </div>
 
+        <div id="overlay-top" class="custom-overlay"></div>
+        <div id="overlay-bottom" class="custom-overlay"></div>
+        <div id="overlay-left" class="custom-overlay"></div>
+        <div id="overlay-right" class="custom-overlay"></div>
         <!-- Mobile view-->
         <div class="modal fade" id="dashboard-sort-modal" role="dialog" ng-controller="MobileViewSortCtrl">
             <div class="modal-dialog">

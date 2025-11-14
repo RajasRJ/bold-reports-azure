@@ -46,6 +46,7 @@
     var dataManager = [];
     var objectSelected = [];
     var selectedIndex = [];
+    var scope;
 </script>
 
 <div id="items">
@@ -411,9 +412,18 @@
     });
 
     function initializeGrid() {
+        var recentItemsList;
+        var CustomAdaptor = new ej.UrlAdaptor().extend({
+            processResponse: function (data, ds, query, xhr, request, changes) {
+                if (data.recentItems) {
+                    recentItemsList = data.recentItems;
+                }
+                return data;
+            }
+        });
         dataManager = ej.DataManager({
             url: getItemGridUrl,
-            adaptor: new ej.UrlAdaptor(),
+            adaptor: new CustomAdaptor(),
         });
 
         dataManager.adaptor.beforeSend = function (dm, request) {
@@ -529,6 +539,15 @@
                     allowSorting: false
                 }
             ]
+        });
+
+        dataManager.executeQuery(ej.Query()).done(function () {
+            scope = angular.element('[ng-controller=DashboardCtrl]').scope();
+            if (recentItemsList) {
+                scope.$applyAsync(function () {
+                    scope.recentItems = recentItemsList;
+                });
+            }
         });
     }
 

@@ -58,6 +58,7 @@ CREATE TABLE [BOLDRS_UserLogType](
 
 CREATE TABLE [BOLDRS_UserLog](
 	[Id] [uniqueidentifier] PRIMARY KEY NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[ActivityId] [uniqueidentifier] NOT NULL,
 	[UserLogTypeId] [int] NOT NULL,
 	[LogFieldId] [int] NOT NULL,
@@ -175,6 +176,7 @@ CREATE TABLE [BOLDRS_ItemVersion](
 
 CREATE TABLE [BOLDRS_ItemLog](
 	[Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[ItemLogTypeId] [int] NOT NULL,
 	[ItemId] [uniqueidentifier] NOT NULL,
 	[ItemVersionId] [int] NOT NULL,
@@ -336,6 +338,7 @@ CREATE TABLE [BOLDRS_SchdLogExtnRecpt](
 
 CREATE TABLE [BOLDRS_ScheduleLog](
 	[Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[ScheduleStatusId] [int] NOT NULL,
 	[ScheduleId] [uniqueidentifier] NOT NULL,
 	[ExecutedDate] [datetime] NOT NULL,
@@ -351,7 +354,8 @@ CREATE TABLE [BOLDRS_SystemSettings](
 	[Key] [nvarchar](255) NOT NULL,
 	[Value] [nvarchar](max) NULL,
 	[ModifiedDate] [datetime] NOT NULL,
-	[IsActive] [bit] NOT NULL)
+	[IsActive] [bit] NOT NULL,
+	CONSTRAINT UK_BOLDRS_SystemSettings_Key_SiteId UNIQUE ([Key], [SiteId]))
 ;
 
 CREATE TABLE [BOLDRS_ServerVersion](
@@ -388,6 +392,7 @@ CREATE TABLE [BOLDRS_ItemCommentLogType](
 
 CREATE TABLE [BOLDRS_ItemCommentLog](
     [Id] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
     [ItemCommentLogTypeId] [int] NOT NULL,
     [CurrentUserId] [int] NOT NULL,    
     [CommentId] [int] NOT NULL,
@@ -518,6 +523,7 @@ CREATE TABLE [BOLDRS_PermissionLogType](
 
 CREATE TABLE [BOLDRS_UserPermissionLog](
 	[Id] [int] IDENTITY(1,1) primary key NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[UserId] [int] NOT NULL,	
 	[AffectedUserId] [int] NOT NULL,
 	[UserPermissionId] [int] NULL,
@@ -528,6 +534,7 @@ CREATE TABLE [BOLDRS_UserPermissionLog](
 
 CREATE TABLE [BOLDRS_GroupPermissionLog](
 	[Id] [int] IDENTITY(1,1) primary key NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[UserId] [int] NOT NULL,	
 	[AffectedGroupId] [int] NOT NULL,
 	[GroupPermissionId] [int] NULL,
@@ -585,6 +592,7 @@ CREATE TABLE [BOLDRS_GroupLogType](
 
 CREATE TABLE [BOLDRS_GroupLog](
 	[Id] [uniqueidentifier] PRIMARY KEY NOT NULL,
+	[SiteId] [uniqueidentifier] NOT NULL,
 	[ActivityId] [uniqueidentifier] NOT NULL,
 	[GroupLogTypeId] [int] NOT NULL,
 	[LogFieldId] [int] NOT NULL,
